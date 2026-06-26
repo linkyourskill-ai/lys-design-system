@@ -139,3 +139,9 @@ This system was reverse-engineered from the product source. Store these for deep
 - **Fonts:** Inter is loaded from **Google Fonts** rather than shipping `.woff2` binaries (the product uses `next/font`). This is the genuine typeface, not a substitute — but if you need self-hosted binaries for an offline build, add them and flag it.
 - **Icons:** Lucide is referenced from CDN (matching the product's `lucide-react`); no icon binaries are vendored here.
 - The component `_ds_bundle.js` is generated automatically by the compiler — component cards and UI kits resolve it at runtime.
+
+---
+
+## License
+
+Released under the [MIT License](LICENSE) © 2026 LinkYourSkill.
