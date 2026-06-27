@@ -1,0 +1,19 @@
+/* ===========================================================================
+   LinkYourSkill Design System — TOKENS-ONLY entry point.
+
+   Foundations layer for product consumption: colors, typography, spacing and
+   effects. Deliberately EXCLUDES:
+     - fonts.css — it pulls Inter from Google Fonts (remote). Products that must
+       stay DSGVO-compliant self-host the face (e.g. next/font) and provide
+       --font-inter themselves. Importing remote fonts here would regress that.
+     - base.css — the .glass-card / .btn-* / .cosmic-glow base classes. Consumers
+       that already ship a richer base layer import only the tokens and keep it.
+
+   For standalone rendering (mocks, the UI kits) use ./styles.css instead, which
+   includes fonts + the base layer.
+   =========================================================================== */
+
+@import "./tokens/colors.css";
+@import "./tokens/typography.css";
+@import "./tokens/spacing.css";
+@import "./tokens/effects.css";

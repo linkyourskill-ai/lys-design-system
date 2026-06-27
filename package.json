@@ -1,0 +1,43 @@
+{
+  "name": "@linkyourskill-ai/lys-design-system",
+  "version": "1.0.0",
+  "description": "LinkYourSkill \"Dark Cosmic\" design system — design tokens, foundation CSS and React primitives. Single source of truth for the LinkYourSkill brand.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linkyourskill-ai/lys-design-system.git"
+  },
+  "homepage": "https://github.com/linkyourskill-ai/lys-design-system#readme",
+  "sideEffects": [
+    "*.css"
+  ],
+  "exports": {
+    ".": "./styles.css",
+    "./styles.css": "./styles.css",
+    "./tokens.css": "./tokens.css",
+    "./tokens/*": "./tokens/*",
+    "./components/*": "./components/*",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "styles.css",
+    "tokens.css",
+    "tokens/",
+    "components/",
+    "foundations/",
+    "assets/",
+    "_ds_manifest.json",
+    "README.md"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "restricted"
+  },
+  "keywords": [
+    "design-system",
+    "design-tokens",
+    "css",
+    "linkyourskill",
+    "dark-cosmic"
+  ]
+}

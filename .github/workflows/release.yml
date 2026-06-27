@@ -1,0 +1,41 @@
+name: Release
+
+# Publishes @linkyourskill-ai/lys-design-system to GitHub Packages whenever a
+# v* tag is pushed. Consumers depend on it with a ^ range and pick up new
+# releases automatically (via Renovate/Dependabot + CI).
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@linkyourskill-ai'
+
+      # Guard: the package.json version must match the pushed tag (v1.2.3 == 1.2.3).
+      - name: Verify tag matches package.json version
+        run: |
+          PKG_VERSION="$(node -p "require('./package.json').version")"
+          TAG_VERSION="${GITHUB_REF_NAME#v}"
+          if [ "$PKG_VERSION" != "$TAG_VERSION" ]; then
+            echo "::error::package.json version ($PKG_VERSION) != tag ($TAG_VERSION)"
+            exit 1
+          fi
+
+      # Pure-CSS package, no build/deps. Publish as-is.
+      - name: Publish to GitHub Packages
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
