@@ -1,6 +1,6 @@
 {
   "name": "@linkyourskill-ai/lys-design-system",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "LinkYourSkill \"Dark Cosmic\" design system — design tokens, foundation CSS and React primitives. Single source of truth for the LinkYourSkill brand.",
   "license": "MIT",
   "repository": {
